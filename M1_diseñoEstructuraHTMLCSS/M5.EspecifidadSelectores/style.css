@@ -1,0 +1,22 @@
+#the-button {
+    background-color: purple;
+}
+
+.btn.btn-special {
+    background-color: green;
+}
+
+.btn {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.btn {
+    background-color: blue;
+}
+
+/* se refiere a la importancia que tiene un elemento antes que otro, normalmente el último que se escribe en el código es el más importante pero el id #the-button, es el más importante y también una clase específica ".btn.btn-special" por encima de una clase .btn */

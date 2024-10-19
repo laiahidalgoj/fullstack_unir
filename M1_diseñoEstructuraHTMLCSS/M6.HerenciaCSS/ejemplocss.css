@@ -1,0 +1,38 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.header{
+    padding-left: 16px;
+    padding-right: 16px;
+    border-top: 10px solid red;;
+}
+
+.row-1 {
+    display: flex;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    justify-content: space-between;
+    border-bottom: 1px solid #ececec;
+}
+
+.principal-nav_list{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 8px;
+}
+
+.row-2 {
+    display: flex;
+    gap: 12;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.caja-buscador {
+    flex-grow: 1;
+  
+}

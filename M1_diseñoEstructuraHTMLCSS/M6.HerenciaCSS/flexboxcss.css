@@ -1,0 +1,17 @@
+.container {
+    background-color: rgb(170, 255, 220);
+    display: flex;
+    justify-content: space-between;
+    height: 200px;
+}
+
+.caja {
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(255, 198, 249);
+    padding: 1rem;
+    /*flex-grow: 1;*/
+}
+
+.especial{
+    /*flex-grow: 2;*/
+}

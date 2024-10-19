@@ -1,0 +1,63 @@
+/* design tokens (específicamente pensado para que sean custom properties globales*/
+:root {
+    --color-primary: #2e9bb0;
+    --color-secondary: #533554;
+    --color-primary-text: #97f6ff;
+    --color-secondary-text: #ffff;
+    }
+
+* {
+    box-sizing: border-box;
+}
+.caja {
+    background-color: red;
+    width: 50%;
+}
+
+.caja-hija{
+    background-color: green;
+    width: 50%;
+    padding: 10px;
+    color: white;
+}
+
+/* todas las propiedades relacionadas con texto, son heredables*/
+
+
+/* custom properties "--size" solo funcionan en su scope*/
+
+.cuadrado {
+    --size: 200px;
+    width: var(--size);
+    height: var(--size);
+    background-color: rgb(216, 174, 255);
+    margin: 10px;
+}
+
+.otrocuadrado {
+    --size: 100px;
+    width: var(--size);
+    height: var(--size);
+    margin: 10px;
+    background-color: rgb(255, 135, 135);
+}
+
+/*utilizamos custom properties globales*/
+.btn {
+    background-color: var(--btn-bg-color);
+    color: var(--btn-text-color);
+    border: none;
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.btn-primary {
+    --btn-bg-color: var(--color-primary);
+    --btn-text-color: var(--color-primary-text);
+}
+
+.btn-secondary {
+    --btn-bg-color: var(--color-secondary);
+    --btn-text-color: var(--color-secondary-text);
+}
