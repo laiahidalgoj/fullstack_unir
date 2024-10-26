@@ -1,0 +1,39 @@
+.padre {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 50px 50px;
+}
+
+.hijo-columna {
+    grid-row: 1/3;
+}
+
+.layout {
+    display: grid;
+    grid-template-areas: 
+    'header header header header'
+    'main main main sidebar'
+    'footer footer footer footer'
+    ;
+}
+
+.header {
+    background-color: palevioletred;
+    grid-area: header;
+}
+
+.main {
+    background-color: palegoldenrod;
+    grid-area: main;
+}
+
+.sidebar {
+    background-color: paleturquoise;
+    grid-area: sidebar;
+    
+}
+
+.footer {
+    background-color: palegreen;
+    grid-area: footer;
+}
