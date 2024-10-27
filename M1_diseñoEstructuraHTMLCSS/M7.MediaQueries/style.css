@@ -1,0 +1,26 @@
+.padre {
+    background-color: palevioletred;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Se han de poner las medias queries lo más abajo posible por el tema de especifidad (la relevancia) */
+
+@media (min-width: 768px){
+    .padre {
+        background-color: aquamarine;
+        flex-direction: row;
+    }
+}
+
+.hijo {
+    background-color: rgb(175, 238, 235);
+    flex-grow: 1;
+    padding: 10px;
+}
+
+/*
+768 tablets vertical 
+1024 tablets horizontal
+1200 dispositivos escritorio
+*/

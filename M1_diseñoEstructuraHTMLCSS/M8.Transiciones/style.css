@@ -1,0 +1,12 @@
+.button {
+    background-color: palevioletred;
+    color: white;
+    border: none;
+    padding: 12px;
+    display: inline-block;
+    transition: background-color 2s ease-in-out;
+}
+
+.button:hover{
+    background-color: rgb(255, 112, 112);
+}
