@@ -56,3 +56,20 @@ const students = [
 const listFiltered = students.filter(student => student.studies === 'Fullstack'); 
 
 console.log(listFiltered);
+
+// sort() order an array
+const names = ['Laia', 'Andrea', 'Carla', 'Mario', 'Francisco'];
+const ordered = names.sort();
+console.log(names);
+
+// reverse() order at reverse
+const reverseNames = names.reverse();
+console.log(reverseNames);
+
+// order from highest to lowest
+const lenCharacters = names.sort((a,b) => a.lenght - b.lenght)
+console.log(lenCharacters);
+
+// order from lowest to highets
+const lenChar = names.sort((c,d) => d.lenght - c.lenght)
+console.log(lenCharacters);

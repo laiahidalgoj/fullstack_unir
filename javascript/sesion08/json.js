@@ -22,6 +22,5 @@ console.log(product);
 console.log('-------')
 
 for(let key in product){
-    console.log(key);
-    console.log(product[key]);
+    console.log(key, product[key]); 
 }
