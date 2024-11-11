@@ -13,7 +13,7 @@ for(let i = 1; i <= 1000; i++){
   }
 }
 
-consolemlog('-----')
+console.log('-----')
 
 // i want sum all numbers from 1 to 100
 let sum = 0;

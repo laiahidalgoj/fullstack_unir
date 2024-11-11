@@ -5,10 +5,12 @@ def sum(n1, n2, n3, n4):
   result_sum = n1 + n2 + n3 + n4
   return result_sum
 
-#def divide(sum, ) copiar lo del profe
+def divide(dividend, divider):
+  return dividend / divider
 
 def average(n1, n2, n3, n4):
-  result_average = sum(n1, n2, n3, n4) / 4
-  return result_average
+  result_sum = sum(n1, n2, n3, n4)
+  result = divide(result_sum, 4)
+  return result
 
-print(average(4,3,4,5))
+print(average(9,9,5,48))
