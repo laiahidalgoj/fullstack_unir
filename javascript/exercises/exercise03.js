@@ -1,17 +1,26 @@
-sales = [
-    {"product": "laptop", "price": 1200, "amount": 3},
-    {"product": "mouse", "price": 25, "amount": 10},
-    {"product": "teclado", "price": 45, "amount": 5},
-    {"product": "monitor", "price": 300, "amount": 2},
-    {"product": "laptop", "price": 1200, "amount": 1},
+products = [
+    {"name": "laptop", "price": 1200, "amount": 3},
+    {"name": "mousse", "price": 25, "amount": 10},
+    {"name": "keyboard", "price": 45, "amount": 5},
+    {"name": "monitor", "price": 300, "amount": 2},
+    {"name": "laptop2", "price": 1800, "amount": 1},
 ]
 
-const prices = sales.map(sale => sale.price)
-console.log(prices);
-const amounts = sales.map(sale => sale.amount)
-console.log(amounts);
-
-for(let i = 0; i <= prices.length;i++){
-    console.log(prices * amounts);
+function getProduct(list, name){
+    for(let product of list){
+        if(product.name === name){
+            let result = product.price * product.amount;
+            return `The total price of ${product.name} is: ${result}€`;
+        }
+    }
 }
 
+console.log(getProduct(products, 'laptop'));
+console.log(getProduct(products, 'keyboard'));
+console.log(getProduct(products, 'mousse'));
+console.log(getProduct(products, 'monitor'));
+console.log(getProduct(products, 'laptop2'));
+
+function getIva(list, price){
+   
+}
