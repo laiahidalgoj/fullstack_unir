@@ -20,6 +20,7 @@ function main() {
     [2]. Show all tasks
     [3]. Complete task
     [4]. Remove task
+    [5]. Modify task
     [x]. Exit
     `);
 
@@ -38,8 +39,12 @@ function main() {
         fn.completeTask(title, fn.tasks);
     }else if(option === '4'){
         //remove tasks
-        let title = prompt('Tell me the title that you want remove: ')
+        let title = prompt('Tell me the title that you want remove: ');
         fn.removeTask(title, fn.tasks);
+    }else if(option == '5'){
+        let title = prompt('Tell me the title that you want modify: ');
+        let newTitle = prompt('Add the modification: ');
+        fn.modifyTask(title, newTitle, fn.tasks);
     }else if(option === 'x'){
         console.log('See you soon');
     }else{

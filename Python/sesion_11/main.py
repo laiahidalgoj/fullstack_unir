@@ -1,4 +1,4 @@
-import functions as fn
+import functions.functions as fn
 
 
 def main():

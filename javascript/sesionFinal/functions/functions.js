@@ -39,11 +39,30 @@ function removeTask(title, list){
     }
 
     if(position !== -1){
-        list.splice(position, 1);
+        addTask(title, fn.tasks);
         console.log('Task has been removed.');
     }else{
         console.log('Tasks not found.')
     } 
 }
 
-module.exports = {addTask, viewTasks, completeTask, removeTask, tasks};
+//modify task
+function modifyTask(title, newTitle, list){
+    let position = -1;
+    for(let i = 0; i < list.length; i++){
+        if(list[i].title === title){
+            position = i;
+            break;
+        }
+    }
+
+    if(position !== -1){
+        list[position].title = newTitle;
+        console.log('Task has been modified', list[position]);
+    }else{
+        console.log('Tasks not found.')
+    } 
+ 
+}
+
+module.exports = {addTask, viewTasks, completeTask, removeTask, tasks, modifyTask};
