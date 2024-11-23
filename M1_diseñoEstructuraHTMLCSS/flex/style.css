@@ -1,0 +1,44 @@
+.wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+/* responsive */
+@media(min-width: 768){
+    /* .loquesea {
+    
+    }*/
+}
+
+.header {
+    background-color: #000;
+    width: 100%;
+}
+
+.articulos {
+    display: flex;
+    background-color: aquamarine;
+    gap: 20px;
+}
+
+.hijo1 {
+    flex-grow: 1;
+}
+
+.articulo {
+    display: flex;
+    gap: 20px;
+}
+
+.articulo-imagen {
+    flex-basis: 35%;
+    background-color: #eee;
+}
+
+.articulo-contenido {
+    flex-basis: 65%;
+    background-color: #f1d9aa;
+}
+

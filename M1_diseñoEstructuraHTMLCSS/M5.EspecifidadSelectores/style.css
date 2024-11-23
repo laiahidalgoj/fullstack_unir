@@ -20,3 +20,6 @@
 }
 
 /* se refiere a la importancia que tiene un elemento antes que otro, normalmente el último que se escribe en el código es el más importante pero el id #the-button, es el más importante y también una clase específica ".btn.btn-special" por encima de una clase .btn */
+
+/* ESPECIFIDAD cómo de especifico eres con tu selector
+/* (1,0,0) primero: cantidad de id, segundo: cantidad de clases, tercero: cantidad de etiquetas */

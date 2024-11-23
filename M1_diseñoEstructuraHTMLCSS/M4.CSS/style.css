@@ -1,3 +1,10 @@
+:root{
+    --color-primary: #000;
+    --color-secondary: #333;
+    --color-terciary: #444;
+
+}
+
 body {
     background-image: url();
 }
@@ -7,10 +14,19 @@ h1 {
 }
 
 p {
-    background-color: aqua;
+    background-color: var(--color-primary);
     color: blue;
 }
 
+/*nesting css */
+.mi-div {
+    .hightlight {
+        background-color: green;
+        &:hover {
+        background-color: blueviolet;
+        }
+    }
+}
 /* selector clases */
 .caja-texto {
     /* propiedades caja */
@@ -26,3 +42,20 @@ p {
     font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
     text-align: left;    
 } 
+
+.caja {
+    font-size: 2rem;
+    padding: 12px;
+    --color-box: rgb(114, 192, 237);
+    background-color: var(--color-box);
+}
+
+.caja1 {
+    --fondo-caja: rgb(248, 245, 139);
+}
+.caja2 {
+    --fondo-caja: rgb(242, 126, 126);
+}
+.caja3 {
+    --fondo-caja: rgb(134, 213, 255);
+}
