@@ -1,6 +1,6 @@
 * {
     font-family:Arial, Helvetica, sans-serif;
-    color: var(--color-primary)
+    color: var(--color-primary);
 }
 
 :root {
@@ -52,6 +52,10 @@
     padding: 10px 10px; 
 }
 
+.contact:hover {
+    background-color: #d9d9d9;
+}
+
 .gigas{
     background-color: rgb(45, 170, 45);
     color: white;
@@ -79,14 +83,14 @@
     margin-top: 20px;
 }
 
-.offer {
+.txt-offer {
     color: var(--color-terciary);
     font-weight: 500;
     margin-bottom: 10px;
 }
 
 .space {
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .price-box{
@@ -106,12 +110,21 @@
     border: 1px solid; 
     border-radius: 6px; 
     padding: 10px 10px; 
+    cursor: pointer;
+}
+
+.btn-buy:hover {
+    background-color: rgb(0, 111, 158);
 }
 
 .icons {
-    display: flex;
-    gap: 20px;
+   display: flex;
     padding-top: 20px;
+}
+
+.icon {
+    display: flex;
+    gap: 10px;
 }
 
 .fi {
@@ -133,28 +146,37 @@ h2 {
 
 .card {
     border-radius: 5px;
-    border: 1px solid #eee;
+    border: 1px solid #bebebe;
     padding: 20px;
+    flex: 1;
 }
 
-.access-offer {
+.btn-access {
     display: inline-block;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: none;
+    font-size: 0.9rem;
+}
+
+.btn-access.offer {
     background-color: var(--color-terciary);
-    color: white;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 15px;
     border: none;
 }
 
-.access-new {
-    display: inline-block;
+.btn-access.offer:hover {
+    background-color: rgb(157, 0, 0);
+}
+
+.btn-access.new {
     background-color: var(--color-secundary);
-    color: white;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 15px;
     border: none;
+}
+
+.btn-access.new:hover {
+    background-color: rgb(0, 111, 158);
 }
 
 .iphone16 {
@@ -163,24 +185,31 @@ h2 {
     margin-top: 30px;
     margin-bottom: 30px;
     border-radius: 4px;
-    background-color: rgb(205, 227, 252);
-    gap: 30px;
+    background-color: rgb(227, 240, 255);
+    gap:40px;
+}
+
+.draw, .draw.p {
+    flex: 0 0 70%;
 }
 
 .draw h2 {
     font-size: 2.5rem;
-    overflow-wrap: break-word;
 }
 
-.draw p {
-    margin-bottom: 20px;
+.draw, .form {
+    box-sizing: border-box;
 }
 
 form {
-    width: 400px;
-    display: flex;
     flex-direction: column;
-    margin-left: 30px;
+    display: flex; 
+    padding-right: 40px;
+    width: 100%; 
+}
+
+.form {
+    flex: 0 0 30%;
 }
 
 label {
@@ -203,7 +232,8 @@ input {
     border: none;
     border-radius: 4px;
     display: inline-block;
-    width: 25%;
+    width: 35%;
+    cursor: pointer;
 }
 
 footer a {
@@ -226,4 +256,78 @@ footer i {
     position: relative;
     left: 50%; 
     margin-left: -50vw; 
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        padding: 0 10px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    p {
+        font-size: 1.3em;
+    }
+
+    h1{
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+
+    .gigas {
+        font-size: 1.2rem;
+    }
+
+    .btn-buy {
+        font-size: 1.2rem;
+    }
+
+    .btn-access {
+        font-size: 1.2rem;
+    }
+
+    .nav-box, .box, .offer-box {
+        display: grid;
+        grid-template-columns: 1fr; 
+        gap: 20px; 
+    }
+
+    .icon {
+        margin-bottom: 30px;
+    }
+
+    .icons {
+        flex-direction: column; 
+    } 
+
+    .fi {
+        font-size: 1.5rem;
+        gap: 10px;
+    }
+
+     .cards {
+        display: grid;
+        grid-template-columns: 1fr; 
+        gap: 20px; 
+    }
+
+    .iphone16, .form {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .form input, label{
+        display: flex;
+        flex-direction: column;
+    }
 }
