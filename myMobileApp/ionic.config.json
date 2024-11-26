@@ -1,5 +1,5 @@
 {
-  "name": "myMobileApp",
+  "name": "New Ionic App",
   "integrations": {},
-  "type": "angular-standalone"
+  "type": "angular"
 }
