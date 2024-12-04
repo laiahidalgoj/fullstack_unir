@@ -36,3 +36,27 @@ console.log(alumno1.firstName)
 
 // || , & , !
 
+// IMC = peso / altura(m)^2
+const peso = 100
+const altura = 1.8
+const imc = peso / (altura**2)
+console.log(imc)
+
+// caja registradora
+//3 articulos
+// 10% dto
+// 21% IVA
+const gastosenviogratis = 30
+const articulo1 = 33
+const articulo2 = 4
+const articulo3 = 3
+const iva = 0.21
+const descuento = 0.1
+
+const total = articulo1 + articulo2 + articulo3
+const totaldescuento = total - (total * descuento)
+const totalfinal = totaldescuento + (totaldescuento * iva)
+
+console.log(totalfinal)
+console.log('envío gratis:', totaldescuento > gastosenviogratis)
+
