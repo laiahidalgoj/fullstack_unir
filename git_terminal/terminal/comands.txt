@@ -1,0 +1,39 @@
+COMANDOS GENÉRICOS
+ls: list_directory listar la carpeta en la que me encuentro
+cd: change_directory - cambiarme de carpeta 
+cd ruta: entrar en un carpeta
+cd .. : Salir a una carpeta superior
+mkdir nombre_carpeta: crear un carpeta
+rmdir nombre_carpeta: borra una carpeta
+touch nombre_archivo.extension : crear un archivo
+rm nombre_archivo.extension: borrar un archivo por su nombre
+clear: limpia la terminal
+OJO CUIDADO: 
+    rm -rf nombre_carpeta : borrar la carpeta y los archivos
+    rm -r nombre_carpeta : borrar la carpeta y los archivos
+
+
+
+
+COMANDOS DE GIT
+
+git init nombre-repo -> Inicializar repositorio en local
+git status -> Ver estado de cambios
+git add . -> Añadir fichero a Stage
+git add nombreFichero.extension -> Añadir un fichero concreto a Stage
+git commit -m "mensaje" -> Crear commit con los ficheros en Stage
+git commit -am "mensaje" -> Hace un git add . y un commit de un sola vez
+git log -> Ver listado de commits de la rama
+git branch -> Ver en que rama estamos y listado de ramas
+git checkout nombre-rama -> activar la rama en la que queremos trabajar
+git branch nueva-rama -> Crear rama
+git branch -D nueva-rama -> Eliminar nueva-rama
+git checkout -b nueva-rama -> Crear rama e ir a la misma en un mismo
+comando
+git clone url-repo -> Clonar repo remoto existente
+git fecth -> Actualizar commits de repo remoto
+git pull origin nombre-rama -> Actualizar desde repo remoto, incluidos
+los ficheros
+git push origin nombre-rama -> Subir cambios a repo remoto
+git merge rama-con-cambio -> Hacer merge en la rama activa desde la rama
+rama-con-cambio
