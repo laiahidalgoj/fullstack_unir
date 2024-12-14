@@ -156,7 +156,7 @@ console.log(apariciones(['a', 'e', 'a', 'e', 33, true, 'e'], 'a'));
 // cuentaletras
 const arr = ['a','e','a','e', 'f', 'e', 'p', 'k', 'l']
 const cuentaletras = (arr) => {
-    const resultado = {}
+    const resultado = {} // es un diccionario vacío
     for(let i = 0; i < arr.length; i++){
         if(typeof resultado[arr[i]] === 'undefined'){
             resultado[arr[i]] = 1;
