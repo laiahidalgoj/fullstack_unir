@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>DOM</title>
 </head>
 <body>
+
+<a href="https://google.com" class="enlace-google">Ir a formulario</a>
+
+<h2>Un formulario</h2>
+
+<form action="miservidor.com/manejodatos" class="un-formulario">
+    <label for="name">Nombre</label>
+    <input type="text" name="name" id="name">
+    <button>Enviar</button>
+</form>
+
     <h1 id="cabecera">Hola DOM</h1>
+    <h2 class="segundo_titulo">hola desde h2</h2>
 
     <p>Esto es un párrafo</p>
     <ul>
@@ -22,6 +35,35 @@
     </ul>
 
     <button class="saludobtn">Saludar</button>
+
+    <!-- OJO -->
+    <hr/>
+        <input class="saludar-nombre"/>
+        <button class="saludar-boton">Otro saludo</button>
+        <div class="saludar-resultado"></div>
+    <hr/>
+
+        <input class="todo-tarea"/>
+        <button class="todo-boton">Añadir tarea</button>
+
+        <ul class="todo-lista">
+        
+        </ul>
+    <hr/>
+
+    <div class="accordion accordion--open">
+        <div class="accordion__row">
+            <div class="accordion__title">
+                ¿Que ventajas tiene una tarifa móvil con datos ilimitados?
+            </div>
+            <button class="accordion__button">⬇</button>
+        </div>
+        <div class="accordion__content">
+                Con una tarifa móvil con datos ilimitados podrás disfrutar de una conexión a internet sin límites.
+        </div>
+    </div>
+
+
     <script src="dom.js"></script>
 </body>
 </html>

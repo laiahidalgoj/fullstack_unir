@@ -1,1 +1,23 @@
-import Cart 
+.accordion__row {
+    display: flex;
+}
+
+.accordion__title {
+    flex-grow: 1;
+}
+
+.accordion__content {
+    display: none;
+}
+
+.accordion__button {
+    transition: transform 1s ease-in-out;
+}
+
+.accordion__open .accordion__content {
+    display: block;
+}
+
+.accordion__open .accordion__button {
+    transform: rotate(180deg);
+}

@@ -1,0 +1,9 @@
+.post-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.post-list-wrapper,
+.post-detail-wrapper {
+    flex-basis: 50%;
+}
