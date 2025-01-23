@@ -6,125 +6,68 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/reset.css">
-    
+
 </head>
 <body>
 
-    <header class="header">
-        <div class="wrapper">
-            <div class="nav-box">
-                <div class="logo">agoodshop</div>
-                    <nav class="nav" >
-                        <ul>
-                            <li><a href="#">Tienda</a></li>
-                            <li><a href="#">Accesorios</a></li>
-                            <li><a href="#">Soporte</a></li>
-                            <li class="contact"><a href="#">Contacto</a></li>
-                        </ul>
-                    </nav>
-                </div>
+<header class="header">
+    <div class="wrapper">
+        <div class="nav-box">
+            <div class="logo">agoodshop</div>
+            <nav class="nav" >
+                <ul>
+                    <li><a href="#">Tienda</a></li>
+                    <li><a href="#">Accesorios</a></li>
+                    <li><a href="#">Soporte</a></li>
+                    <li class="contact"><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="line"></div>
+
+<main class="wrapper">
+    <div class="product-list-box">
+        <section class="product-list">
+            <div class="header-products">
+                <div class="header-product-uno">Producto</div>
+                <div class="header-product">Cantidad</div>
+                <div class="header-product">Unidad</div>
+                <div class="header-product">Total</div>
             </div>
-        </header>
-        <div class="line"></div>
-
-        <main class="wrapper">
-          <div class="product-list-box">
-            <section class="product-list">
-                <div class="header-products">
-                  <div class="header-product-uno">Producto</div>
-                  <div class="header-product">Cantidad</div>
-                  <div class="header-product">Unidad</div>
-                  <div class="header-product">Total</div>
-                </div>
-                
-              <div class="products-box" data-product-id="1">
-                  <div class="header-info-product">
-                    <div class="product-info"> 
-                      <h3 class="title-product">iFhone 13 Pro</h3>
-                      <p class="ref">Ref: 0GKSN4WNGLS</p>
+                    <div class="unit">
+                        <p class="price-unit"></p>
                     </div>
-                  <div class="quantity-controls">
-                    <button class="decrement-button">-</button>
-                      <span class="units">1</span>
-                    <button class="increment-button">+</button>
-                </div>
-                  <div class="unit">
-                    <p class="price-unit">914€</p>
-                  </div>
-                  <div class="total-product">
-                      <p class="price-total-unit"></p>
-                  </div>
-              </div>
-              <div class="line-product"></div>
-            </div>
 
-                <div class="products-box" data-product-id="2">
-                    <div class="header-info-product">
-                        <div class="product-info">
-                            <h3 class="title-product">Cargador</h3>
-                            <p class="ref">Ref: FAFGMW4MAF</p>
-                        </div>
-                        <div class="quantity-controls">
-                            <button class="decrement-button">-</button>
-                            <span class="units">1</span>
-                            <button class="increment-button">+</button>
-                        </div>
-                        <div class="unit">
-                            <p class="price-unit">914€</p>
-                        </div>
-                        <div class="total-product">
-                            <p class="price-total-unit"></p>
-                        </div>
+                    <div class="total-product">
+                        <p class="price-total-unit"></p>
                     </div>
-                    <div class="line-product"></div>
-                </div>
 
-                <div class="products-box" data-product-id="3">
-                    <div class="header-info-product">
-                        <div class="product-info">
-                            <h3 class="title-product">Funda de piel</h3>
-                            <p class="ref">Ref: AFKDALAFDN</p>
-                        </div>
-                        <div class="quantity-controls">
-                            <button class="decrement-button">-</button>
-                            <span class="units">1</span>
-                            <button class="increment-button">+</button>
-                        </div>
-                        <div class="unit">
-                            <p class="price-unit">914€</p>
-                        </div>
-                        <div class="total-product">
-                            <p class="price-total-unit"></p>
-                        </div>
-                    </div>
-                    <div class="line-product"></div>
-                </div>
-          </section>
-             
-          <aside class="total-box ">
-              <p class="total">Total</p>
-                <div class="title-box">
-                  <p class="title-total-box"></p>
-                  <p class="total-price-box"></p>
-                </div>
-                <div class="title-box">
-                  <p class="title-total-box">Cargador</p>
-                  <p class="total-price-box">42€</p>
-                </div>
                 <div class="line-product"></div>
-              <div class="total-products">
+
+        </section>
+
+        <aside class="total-box">
+            <p class="total">Total</p>
+            <div>
+                <div class="title-total-box"></div>
+            </div>
+            <div class="line-product"></div>
+            <div class="total-products">
                 <p class="total-title">TOTAL</p>
-                <p class="total-price"></p>
-              </div>
-          </aside>
-      </div>
-    
-              <div class="line"></div>
-            </main>
-            <footer class="wrapper">
-                <a href="#">© agoodshop</a>
-            </footer>
-            <script type="module" src="./js/main.js"></script>
-            <script type="module" src="./js/posts.js"></script>
+                <p class="total-price"></p> <!
+            </div>
+        </aside>
+
+    </div>
+
+    <div class="line"></div>
+</main>
+<footer class="wrapper">
+    <a href="#">© agoodshop</a>
+</footer>
+<script type="module" src="./js/main.js"></script>
+<script type="module" src="./js/posts.js"></script>
 </body>
 </html>

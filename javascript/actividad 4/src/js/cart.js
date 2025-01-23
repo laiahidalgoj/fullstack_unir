@@ -1,19 +1,21 @@
 export class Cart {
+    #products;
 
-    constructor(sku, title, price, units) {
-        this.sku = sku;
-        this.title = title;
-        this.price = parseFloat(price);
-        this.units = parseInt(units);
-        this.products = [];
+    constructor() {
+        this.#products = [];
     }
-    
-    // Add a method to get the products
+
+    // GET PRODUCTS
     getProducts() {
-        return this.products;
+        return this.#products.map(product => ({
+            sku: product.sku,
+            title: product.title,
+            price: product.price,
+            units: product.units,
+        }));
     }
 
-    // Add a method to add a product
+    // ADD PRODUCT
     addProduct(sku, title, price, units = 1) {
         if (units <= 0) {
             throw new Error("Units must be greater than 0.");
@@ -21,100 +23,57 @@ export class Cart {
         if (price < 0) {
             throw new Error("Price cannot be negative.");
         }
-        
-        const existProduct = this.products.find(product => product.title === title);   
-        
-        if(existProduct) {
+
+        const existProduct = this.#products.find(product => product.sku === sku);
+
+        if (existProduct) {
             existProduct.units += units;
-        }else{
-            this.products.push({id: sku, title, price, units});
-    }
-}
-
-// TAL VEZ ELIMINAR
-    addTitleCart() {
-        if (units <= 0) {
-            throw new Error("Units must be greater than 0.");
+        } else {
+            this.#products.push({
+                sku,
+                title,
+                price: parseFloat(price),
+                units: parseInt(units),
+            });
         }
-        if (price < 0) {
-            throw new Error("Price cannot be negative.");
-        }
-
-        const existProduct = this.products.find(product => product.title === title);
-
-        if(existProduct) {
-            existProduct.units += units;
-        }else{
-            this.products.push({title});
-        }
-}
-
-    getUnits(title){
-      const product = this.products.find(product => product.title === title);
-
-      if(product){
-        return product.units;
-        };
     }
 
-    // Add method to calculate the total price of the products
-    calculateTotal(price, units) {
-        let total = 0;
-        this.products.forEach(product => {
-            total += Number(product.price);
-        });
-
-        return total;
+    // GET UNITS
+    getUnits(sku) {
+        const product = this.#products.find(product => product.sku === sku);
+        return product ? product.units : 0;
     }
 
-    calculateTotalProduct(price, units) {
-        return price * units;
+    // CALCULATE TOTAL
+    calculateTotal() {
+        return this.#products
+            .reduce((total, product) => total + product.price * product.units, 0)
+            .toFixed(2);
     }
 
-    updateTotalProduct(sku, totalUnit){
-        const total = this.calculateTotalProduct(sku);
-        totalUnit.textContent = `${totalUnit}€`
-    }
+    // UPDATE UNITS
+    updateUnits(sku, increment) {
+        const product = this.#products.find(product => product.sku === sku);
 
-    // Add a method to update a product
-    updateProduct(sku, title, price) {
-        const product = this.products.find(product => product.id === sku);
-    
         if (!product) {
-          throw new Error(`Product with SKU ${sku} not found.`);
-        }
-
-        if (title) product.title = title; 
-        if (price) product.price = price; 
-      }
-
-    
-    updateUnits(value){
-        this.units = this.units || 0;
-        this.units = Math.max(0, this.units + value);
-
-        const unitCountElement = document.getElementById('unitCount').innerText = units;
-        if(unitCountElement){
-            unitCountElement.innerText = this.units;
-        }else{
-            throw new Error('Element with id unitCount not found.');
-        }
-    }
-
-   
-
-    // Add a method to delete a product
-    deleteProduct(sku){
-        const existProduct = this.products.findIndex(product => product.id === sku);
-
-        if(existProduct !== -1) {
-            this.products.splice(existProduct, 1)
-        }else{
             throw new Error(`Product with SKU ${sku} not found.`);
-        }  
-    }
-    
-    
-     
-}
+        }
 
+        product.units = Math.max(0, product.units + increment);
+
+        if (product.units === 0) {
+            this.deleteProduct(sku);
+        }
+    }
+
+    // DELETE PRODUCT
+    deleteProduct(sku) {
+        const productIndex = this.#products.findIndex(product => product.sku === sku);
+
+        if (productIndex === -1) {
+            throw new Error(`Product with SKU ${sku} not found.`);
+        }
+
+        this.#products.splice(productIndex, 1);
+    }
+}

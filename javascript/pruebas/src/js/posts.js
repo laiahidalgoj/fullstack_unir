@@ -3,7 +3,7 @@ export const posts = [
     {
         "SKU": "0K3QOSOV4V",
         "title": "iFhone 13 Pro",
-        "price": "938.89"
+        "price": "938.99"
     },
     {
         "SKU": "TGD5XORY1L",

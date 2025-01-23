@@ -2,92 +2,137 @@ import { Cart } from './cart.js';
 import { posts } from './posts.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    
-const products = []
-const product = new Cart();
+    const productList = document.querySelector('.product-list');
+    const titleTotalBox = document.querySelector('.title-total-box');
+    const totalPrice = document.querySelector('.total-price');
 
-product.addProduct('AFKDALAFDN', 'funda de piel', 22.32)
-product.addProduct('FAFGMW4MAF', 'cargador', 10.32);
-product.addProduct('0GKSN4WNGLS', 'iFhone 13', 1043.62);
+    const cart = new Cart();
 
-products.push(product);
-
-console.log(product.getProducts());
-console.log(product.calculateTotal());
-
-product.updateProduct('FAFGMW4MAF', 'cargador rápido', 20);
-product.updateProduct('AFKDALAFDN', 'funda de silicona', 17);
-
-console.log(product.getProducts());
-
-product.addProduct('KFAFVNASLF', 'air pods Pro', 24.45);
-console.log(product.getProducts());
-product.addProduct('EFALFGALNM', 'air pods', 24.45);
-product.addProduct('EFALFGALNM', 'air pods', 25);
-console.log(product.getProducts());
-
-product.deleteProduct('FAFGMW4MAF');
-console.log(product.getProducts());
-
-console.log(product.getUnits('air pods Pro'));
-console.log(product.getUnits('air pods'));
-
-console.log(product.calculateTotalProduct(914, 2))
-    
-// DOM
-const addUnit = document.querySelector('.increment-button');
-const deleteUnit = document.querySelector('.decrement-button');
-const totalPriceUnit = document.querySelector('.total-product');
-const sku = document.querySelector('.ref');
-const unit = document.querySelector('.units');
-const prices = document.querySelector('.price-unit');
-const titleProduct = document.querySelector('.title-product');
-const totalProducts = document.querySelector('.total-products');
-const priceProduct = document.querySelector('.total-price-box');
-const totalPrice = document.querySelector('.total-price');
-const totalTitle = document.querySelector('.total-title');
-const titleBox = document.querySelector('.title-box');
-const titleTotalBox = document.querySelector('.title-total-box');
-
-let un = 0;
-let price = 814;
-
-// INCREMENT AND ADD UNITS AND PRICE
-addUnit.addEventListener("click", () => {
-    if(parseInt(unit.innerHTML) > 0) {
-        un++;
-        unit.innerHTML = un;
-    }
-    const total = product.calculateTotalProduct(price, un);
-    totalPriceUnit.textContent =  `${total}€`;
-    priceProduct.innerHTML = `${total}€`;
-
-    // ADD TOTAL PRODUCT
-    totalTitle.textContent = 'TOTAL';
-    totalPrice.textContent =  `${total}€`;
-
-    // ADD TITLE -- NO FUNCIONA
     posts.forEach(post => {
-        const tit = post.title;
-        titleTotalBox.textContent =  `${tit}`;
+        const productBox = document.createElement('div');
+        productBox.classList.add('products-box');
+
+        const headerInfoProduct = document.createElement('div');
+        headerInfoProduct.classList.add('header-info-product');
+
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+
+        const title = document.createElement('p');
+        title.textContent = post.title;
+
+        const ref = document.createElement('p');
+        ref.textContent = `Ref: ${post.SKU}`;
+
+        productInfo.appendChild(title);
+        productInfo.appendChild(ref);
+
+        const quantityControls = document.createElement('div');
+        quantityControls.classList.add('quantity-controls');
+
+        const decrementButton = document.createElement('button');
+        decrementButton.classList.add('decrement-button');
+        decrementButton.textContent = '-';
+
+        const units = document.createElement('span');
+        units.classList.add('units');
+        units.textContent = '0';
+
+        const incrementButton = document.createElement('button');
+        incrementButton.classList.add('increment-button');
+        incrementButton.textContent = '+';
+
+        quantityControls.appendChild(decrementButton);
+        quantityControls.appendChild(units);
+        quantityControls.appendChild(incrementButton);
+
+        const unit = document.createElement('div');
+        unit.classList.add('unit');
+
+        const priceUnit = document.createElement('p');
+        priceUnit.classList.add('price-unit');
+        priceUnit.textContent = `${post.price}€`;
+
+        unit.appendChild(priceUnit);
+
+        const totalProduct = document.createElement('div');
+        totalProduct.classList.add('total-product');
+
+        const priceTotalUnit = document.createElement('p');
+        priceTotalUnit.classList.add('price-total-unit');
+        priceTotalUnit.textContent = '';
+
+        totalProduct.appendChild(priceTotalUnit);
+
+        headerInfoProduct.appendChild(productInfo);
+        headerInfoProduct.appendChild(quantityControls);
+        headerInfoProduct.appendChild(unit);
+        headerInfoProduct.appendChild(totalProduct);
+
+        productBox.appendChild(headerInfoProduct);
+
+        const lineProduct = document.createElement('div');
+        lineProduct.classList.add('line-product');
+
+        productList.appendChild(productBox);
+        productList.appendChild(lineProduct);
+
+        let unitCount = 0;
+
+        incrementButton.addEventListener('click', () => {
+            unitCount++;
+            units.textContent = unitCount;
+            const totalPrice = (unitCount * parseFloat(post.price)).toFixed(2);
+            priceTotalUnit.textContent = `${totalPrice}€`;
+
+            cart.addProduct(post.SKU, post.title, post.price, unitCount, 1);
+
+            updateGlobalTotal();
+        });
+
+        decrementButton.addEventListener('click', () => {
+            if (unitCount > 0) {
+                unitCount--;
+                units.textContent = unitCount;
+                const totalPrice = (unitCount * parseFloat(post.price)).toFixed(2);
+                priceTotalUnit.textContent = `${totalPrice}€`;
+
+                cart.updateUnits(post.SKU, -1);
+
+                updateGlobalTotal();
+            }
+        });
     });
-    })
 
-// DECREMENT AND DELETE UNITS AND PRICE
-deleteUnit.addEventListener("click", () => {
-    if(parseInt(unit.innerHTML) > 0){
-        un--;
-        unit.innerHTML = un;
-    }
+    const updateGlobalTotal = () => {
+        titleTotalBox.innerHTML = '';
+        let totalGlobalPrice = 0;
+        let totalUnits = 0;
 
-    const total = product.calculateTotalProduct( price, un);
-    totalPriceUnit.textContent =  `${total}€`;
-    priceProduct.innerHTML = `${total}€`;
 
-    const totalProd = product.calculateTotalProduct(price, un);
-    totalTitle.textContent = 'TOTAL';
-    totalPrice.textContent =  `${totalProd}€`;
-})
+        cart.getProducts().forEach(product => {
+            totalGlobalPrice += product.price * product.units;
+            totalUnits += product.units;
+
+            const productInfo = document.createElement('div');
+            productInfo.classList.add('selected-product');
+
+            const productDetails = document.createElement('p');
+            productDetails.classList.add('title-selected');
+            productDetails.textContent = `${product.title}`
+
+
+            const productPrice = document.createElement('p');
+            productPrice.classList.add('price-selected');
+            productPrice.textContent = `${product.price * product.units.toFixed(2)}€`;
+
+            productInfo.appendChild(productDetails);
+            titleTotalBox.appendChild(productInfo);
+            productInfo.appendChild(productPrice);
+        });
+
+        // UPDATE PRODUCTS
+        //totalPriceBox.textContent = `Unidades: ${totalUnits}`;
+        totalPrice.textContent = `${totalGlobalPrice.toFixed(2)}€`;
+    };
 });
-
-

@@ -14,6 +14,14 @@ const posts = [
         "sku": "IOKW9BQ9F3",
         "title": "Funda de piel",
         "price": "79.99"
+    },
+    {
+        "sku": "IOKW9BQ9F3",
+        "title": "Air Pods",
+        "price": "79.99"
     }
 
+
 ]
+
+module.exports = posts;
