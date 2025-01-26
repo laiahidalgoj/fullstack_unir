@@ -89,27 +89,29 @@ document.addEventListener('DOMContentLoaded', () => {
             let unitCount = 0;
 
             incrementButton.addEventListener('click', () => {
-                unitCount++;
+                cart.addProduct(post.SKU, post.title, post.price, 1);
+
+                const updatedProduct = cart.getProducts().find(p => p.sku === post.SKU);
+                const unitCount = updatedProduct ? updatedProduct.units : 0;
+
                 units.textContent = unitCount;
                 const totalPrice = (unitCount * parseFloat(post.price)).toFixed(2);
                 priceTotalUnit.textContent = `${totalPrice}€`;
-
-                cart.addProduct(post.SKU, post.title, post.price, unitCount, 1);
 
                 updateGlobalTotal();
             });
 
             decrementButton.addEventListener('click', () => {
-                if (unitCount > 0) {
-                    unitCount--;
-                    units.textContent = unitCount;
-                    const totalPrice = (unitCount * parseFloat(post.price)).toFixed(2);
-                    priceTotalUnit.textContent = `${totalPrice}€`;
+                cart.updateUnits(post.SKU, -1);
 
-                    cart.updateUnits(post.SKU, -1);
+                const updatedProduct = cart.getProducts().find(p => p.sku === post.SKU);
+                const unitCount = updatedProduct ? updatedProduct.units : 0;
 
-                    updateGlobalTotal();
-                }
+                units.textContent = unitCount;
+                const totalPrice = (unitCount * parseFloat(post.price)).toFixed(2);
+                priceTotalUnit.textContent = `${totalPrice}€`;
+
+                updateGlobalTotal();
             });
         });
 
@@ -133,14 +135,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const productPrice = document.createElement('p');
                 productPrice.classList.add('price-selected');
-                productPrice.textContent = `${product.price * product.units.toFixed(2)}€`;
+                productPrice.textContent = `${(product.price * product.units).toFixed(2)}€`;
+
 
                 productInfo.appendChild(productDetails);
                 titleTotalBox.appendChild(productInfo);
                 productInfo.appendChild(productPrice);
             });
 
-            // UPDATE PRODUCTS
+            // UPDATE TOTAL
             //totalPriceBox.textContent = `Unidades: ${totalUnits}`;
             totalPrice.textContent = `${totalGlobalPrice.toFixed(2)}€`;
         };
