@@ -1,5 +1,5 @@
 import { Cart } from './cart.js';
-import { posts } from './posts.js';
+//import { posts } from './posts.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const productList = document.querySelector('.product-list');
@@ -8,131 +8,145 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const cart = new Cart();
 
-    posts.forEach(post => {
-        const productBox = document.createElement('div');
-        productBox.classList.add('products-box');
+    fetch(' https://jsonblob.com/api/jsonBlob/1332992737745756160')
+        .then(res => res.json())
+        .then(posts => {
+            showPosts(posts);
+        })
 
-        const headerInfoProduct = document.createElement('div');
-        headerInfoProduct.classList.add('header-info-product');
+    const showPosts = (posts) => {
+        console.log(posts)
 
-        const productInfo = document.createElement('div');
-        productInfo.classList.add('product-info');
+        posts.forEach(post => {
+            const productBox = document.createElement('div');
+            productBox.classList.add('products-box');
 
-        const title = document.createElement('p');
-        title.textContent = post.title;
+            const headerInfoProduct = document.createElement('div');
+            headerInfoProduct.classList.add('header-info-product');
 
-        const ref = document.createElement('p');
-        ref.textContent = `Ref: ${post.SKU}`;
+            const productInfo = document.createElement('div');
+            productInfo.classList.add('product-info');
 
-        productInfo.appendChild(title);
-        productInfo.appendChild(ref);
+            const title = document.createElement('p');
+            title.textContent = post.title;
 
-        const quantityControls = document.createElement('div');
-        quantityControls.classList.add('quantity-controls');
+            const ref = document.createElement('p');
+            ref.textContent = `Ref: ${post.SKU}`;
 
-        const decrementButton = document.createElement('button');
-        decrementButton.classList.add('decrement-button');
-        decrementButton.textContent = '-';
+            productInfo.appendChild(title);
+            productInfo.appendChild(ref);
 
-        const units = document.createElement('span');
-        units.classList.add('units');
-        units.textContent = '0';
+            const quantityControls = document.createElement('div');
+            quantityControls.classList.add('quantity-controls');
 
-        const incrementButton = document.createElement('button');
-        incrementButton.classList.add('increment-button');
-        incrementButton.textContent = '+';
+            const decrementButton = document.createElement('button');
+            decrementButton.classList.add('decrement-button');
+            decrementButton.textContent = '-';
 
-        quantityControls.appendChild(decrementButton);
-        quantityControls.appendChild(units);
-        quantityControls.appendChild(incrementButton);
+            const units = document.createElement('span');
+            units.classList.add('units');
+            units.textContent = '0';
 
-        const unit = document.createElement('div');
-        unit.classList.add('unit');
+            const incrementButton = document.createElement('button');
+            incrementButton.classList.add('increment-button');
+            incrementButton.textContent = '+';
 
-        const priceUnit = document.createElement('p');
-        priceUnit.classList.add('price-unit');
-        priceUnit.textContent = `${post.price}€`;
+            quantityControls.appendChild(decrementButton);
+            quantityControls.appendChild(units);
+            quantityControls.appendChild(incrementButton);
 
-        unit.appendChild(priceUnit);
+            const unit = document.createElement('div');
+            unit.classList.add('unit');
 
-        const totalProduct = document.createElement('div');
-        totalProduct.classList.add('total-product');
+            const priceUnit = document.createElement('p');
+            priceUnit.classList.add('price-unit');
+            priceUnit.textContent = `${post.price}€`;
 
-        const priceTotalUnit = document.createElement('p');
-        priceTotalUnit.classList.add('price-total-unit');
-        priceTotalUnit.textContent = '';
+            unit.appendChild(priceUnit);
 
-        totalProduct.appendChild(priceTotalUnit);
+            const totalProduct = document.createElement('div');
+            totalProduct.classList.add('total-product');
 
-        headerInfoProduct.appendChild(productInfo);
-        headerInfoProduct.appendChild(quantityControls);
-        headerInfoProduct.appendChild(unit);
-        headerInfoProduct.appendChild(totalProduct);
+            const priceTotalUnit = document.createElement('p');
+            priceTotalUnit.classList.add('price-total-unit');
+            priceTotalUnit.textContent = '';
 
-        productBox.appendChild(headerInfoProduct);
+            totalProduct.appendChild(priceTotalUnit);
 
-        const lineProduct = document.createElement('div');
-        lineProduct.classList.add('line-product');
+            headerInfoProduct.appendChild(productInfo);
+            headerInfoProduct.appendChild(quantityControls);
+            headerInfoProduct.appendChild(unit);
+            headerInfoProduct.appendChild(totalProduct);
 
-        productList.appendChild(productBox);
-        productList.appendChild(lineProduct);
+            productBox.appendChild(headerInfoProduct);
 
-        let unitCount = 0;
+            const lineProduct = document.createElement('div');
+            lineProduct.classList.add('line-product');
 
-        incrementButton.addEventListener('click', () => {
-            unitCount++;
-            units.textContent = unitCount;
-            const totalPrice = (unitCount * parseFloat(post.price)).toFixed(2);
-            priceTotalUnit.textContent = `${totalPrice}€`;
+            productList.appendChild(productBox);
+            productList.appendChild(lineProduct);
 
-            cart.addProduct(post.SKU, post.title, post.price, unitCount, 1);
+            let unitCount = 0;
 
-            updateGlobalTotal();
-        });
-
-        decrementButton.addEventListener('click', () => {
-            if (unitCount > 0) {
-                unitCount--;
+            incrementButton.addEventListener('click', () => {
+                unitCount++;
                 units.textContent = unitCount;
                 const totalPrice = (unitCount * parseFloat(post.price)).toFixed(2);
                 priceTotalUnit.textContent = `${totalPrice}€`;
 
-                cart.updateUnits(post.SKU, -1);
+                cart.addProduct(post.SKU, post.title, post.price, unitCount, 1);
 
                 updateGlobalTotal();
-            }
-        });
-    });
+            });
 
-    const updateGlobalTotal = () => {
-        titleTotalBox.innerHTML = '';
-        let totalGlobalPrice = 0;
-        let totalUnits = 0;
+            decrementButton.addEventListener('click', () => {
+                if (unitCount > 0) {
+                    unitCount--;
+                    units.textContent = unitCount;
+                    const totalPrice = (unitCount * parseFloat(post.price)).toFixed(2);
+                    priceTotalUnit.textContent = `${totalPrice}€`;
 
+                    cart.updateUnits(post.SKU, -1);
 
-        cart.getProducts().forEach(product => {
-            totalGlobalPrice += product.price * product.units;
-            totalUnits += product.units;
-
-            const productInfo = document.createElement('div');
-            productInfo.classList.add('selected-product');
-
-            const productDetails = document.createElement('p');
-            productDetails.classList.add('title-selected');
-            productDetails.textContent = `${product.title}`
-
-
-            const productPrice = document.createElement('p');
-            productPrice.classList.add('price-selected');
-            productPrice.textContent = `${product.price * product.units.toFixed(2)}€`;
-
-            productInfo.appendChild(productDetails);
-            titleTotalBox.appendChild(productInfo);
-            productInfo.appendChild(productPrice);
+                    updateGlobalTotal();
+                }
+            });
         });
 
-        // UPDATE PRODUCTS
-        //totalPriceBox.textContent = `Unidades: ${totalUnits}`;
-        totalPrice.textContent = `${totalGlobalPrice.toFixed(2)}€`;
-    };
+        const updateGlobalTotal = () => {
+            titleTotalBox.innerHTML = '';
+            let totalGlobalPrice = 0;
+            let totalUnits = 0;
+
+
+            cart.getProducts().forEach(product => {
+                totalGlobalPrice += product.price * product.units;
+                totalUnits += product.units;
+
+                const productInfo = document.createElement('div');
+                productInfo.classList.add('selected-product');
+
+                const productDetails = document.createElement('p');
+                productDetails.classList.add('title-selected');
+                productDetails.textContent = `${product.title}`
+
+
+                const productPrice = document.createElement('p');
+                productPrice.classList.add('price-selected');
+                productPrice.textContent = `${product.price * product.units.toFixed(2)}€`;
+
+                productInfo.appendChild(productDetails);
+                titleTotalBox.appendChild(productInfo);
+                productInfo.appendChild(productPrice);
+            });
+
+            // UPDATE PRODUCTS
+            //totalPriceBox.textContent = `Unidades: ${totalUnits}`;
+            totalPrice.textContent = `${totalGlobalPrice.toFixed(2)}€`;
+        };
+
+    }
+
 });
+
+

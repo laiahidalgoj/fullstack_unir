@@ -18,7 +18,7 @@ promise
 
 
 // JSON -- convertir texto a objeto - JSON.parse
-const text = '['a', 'b', 'c']';
+const text = ['a', 'b', 'c'];
 const arr = JSON.parse(text);
 console.log(arr);
 
@@ -33,12 +33,12 @@ const json = JSON.stringify(alumno);
 
 
 //  FETCH
-const pintarPosts = (posts) => {}
-
-fetch('https://jsonblob.com/1330556481682202624')
-    .then(res => res.json())
-    .then(posts => {
-        pintarPosts(posts);
-    })
-
-console.log('finalizado')
+// const pintarPosts = (posts) => {}
+//
+// fetch('https://jsonblob.com/1332430443403993088')
+//     .then(res => res.json())
+//     .then(posts => {
+//         pintarPosts(posts);
+//     })
+//
+// console.log('finalizado')

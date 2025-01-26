@@ -75,5 +75,6 @@ export class Cart {
         }
 
         this.#products.splice(productIndex, 1);
+
     }
 }
