@@ -1,4 +1,5 @@
 // typescript tiene tipado estático - fuerte
+// para compilar se ha de hacer tsc nombreArchivo.ts y para ver el resultado node nombreArchivo.js
 
 let nombre: string = 'Laia Hidalgo'
 let edad: number = 33

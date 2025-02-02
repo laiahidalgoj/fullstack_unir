@@ -42,3 +42,24 @@ const json = JSON.stringify(alumno);
 //     })
 //
 // console.log('finalizado')
+
+
+// ### ASYNC
+console.log('soy hilo principal');
+
+const puertaDiscoteca = async (edad) => {
+    return edad >= 18
+}
+
+puertaDiscoteca(20)
+console.log('soy hilo principal')
+
+// AWAIT ###
+const traerDatos = async () => {
+    console.log('antes del fetch')
+    const res = await fetch('https://jsonplaceholder.typicode.com/photos')
+    const photos = await res.json()
+    console.log('tras el fetch', photos)
+}
+
+traerDatos();
