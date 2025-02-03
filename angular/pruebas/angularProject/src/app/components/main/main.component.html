@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document</title>
+</head>
+<body>
+
+<h1>Componente main</h1>
+
+<p [class]="color">Nombre: {{nombre}}</p>
+<p>{{getNombre()}}</p>
+
+
+<!--signals-->
+<p>Contador: {{contador()}}</p>
+<p>Numero: {{numero}}</p>
+
+<!-- tiene mejor rendimiento signal-->
+<p>Signal Counter: {{counterSignal()}}</p>
+
+<!--gestión eventos-->
+<p>Counter: {{counter}}</p>
+<button (click)="onClick()">Increment</button>
+
+<select (change)="cargarCiudad($event)">
+  <option value="">Selecciona una ciudad</option>
+  <option value="madrid">Madrid</option>
+  <option value="london">Londres</option>
+  <option value="paris">París</option>
+</select>
+<p>En qué ciudad vives?:  {{ciudad}}</p>
+<p>En qué ciudad vives?:  {{ciudadSignal()}}</p>
+
+<button (click)="mostrarValor('estoy cargando un mensaje desde eventos angular')">Lanzar alerta</button>
+
+
+</body>
+</html>
