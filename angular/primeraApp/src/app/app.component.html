@@ -1,1 +1,57 @@
+
+<section>
+  <!--componente ciclovida-->
+  <app-ciclovida></app-ciclovida>
+</section>
+
+
+<section>
+  <!--componente galería-->
+  <app-galeria></app-galeria>
+</section>
+
+
+
+
+<section>
+  <!--componente contador -->
+  <app-contador></app-contador>
+  <app-contador></app-contador>
+</section>
+
+
+
+
+
+
+
+
+
 <h1>hola {{nombre}}</h1>
+
+
+<!-- ## INTERPOLACIÓN ## - permite poner javascript en html - comunicación del TS y HTML -->
+<p>{{sumar(23,4)}}</p>
+<p>{{(edad >= 18) ? 'Eres mayor de edad' : 'Eres menor de edad' }}</p>
+
+
+<!-- comunicación del HTML a TS - EVENT BIDING con ()-->
+<button (click)="cambiarColor('blue')">Click</button>
+
+<!-- PROPERTY BIDING con []-->
+<!-- esta forma es válida pero hay otra mejor-->
+<!--<div class="caja" [style]="estiloCaja"></div>-->
+
+<!-- esta es la mejor manera del property biding-->
+<div class="caja" [style.background-color]="estiloCaja"></div>
+
+<!-- si necesito capturar algo del propio elemento que lanza un evento-->
+<select (change)="selectCity($event)">
+  <option value="">Selecciona una ciudad</option>
+  <option value="m">Madrid</option>
+  <option value="l">Londres</option>
+  <option value="p">París</option>
+</select>
+
+<h3>En qué ciudad vives: {{ciudadSeleccionada}}</h3>
+
