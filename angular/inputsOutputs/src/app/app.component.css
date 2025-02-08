@@ -1,0 +1,14 @@
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex section {
+  width: 100%;
+}
+
+@media(min-width: 600px) {
+  .flex {
+    flex-direction: row;
+  }
+}

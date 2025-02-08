@@ -1,0 +1,16 @@
+<header>
+  <h1>Calculadora casio</h1>
+  <hr>
+</header>
+
+<main class="flex">
+  <section>
+    <!--calculadora-->
+    <app-calculadora (calculoEmitido)="obtenerCalculo($event)"></app-calculadora>
+  </section>
+
+  <section>
+    <!--lista de cálculos-->
+    <app-lista-calculos [listacalculos]="arrCalculos" [colorfondo]=" 'lightblue' "></app-lista-calculos>
+  </section>
+</main>
