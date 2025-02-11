@@ -24,6 +24,12 @@ export class AppComponent {
     l: 'Londres'
   }
 
+  ngOnInit(): void {
+    setTimeout(()=> {
+      this.edad = 33;
+    }, 7000)
+  }
+
   // función
   sumar(n1: number, n2: number): string {
     let resultado = n1 + n2;

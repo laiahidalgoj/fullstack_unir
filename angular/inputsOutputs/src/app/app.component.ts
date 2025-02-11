@@ -17,6 +17,8 @@ export class AppComponent {
   ]
 
   obtenerCalculo(event: ICalc){
-    this.arrCalculos.push(event);
+    //this.arrCalculos.push(event);
+    // generar otro array nuevo con el array anterior y el elemento nuevo
+    this.arrCalculos = [...this.arrCalculos, event];
   }
 }

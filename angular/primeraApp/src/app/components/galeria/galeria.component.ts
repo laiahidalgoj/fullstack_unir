@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IPhoto} from '../../interfaces/iphoto.interface';
+import {IPhoto} from '../../interfaces/iphoto.interface'
 
 @Component({
   selector: 'app-galeria',
@@ -17,14 +17,14 @@ export class GaleriaComponent {
 
   currentImg: number = 2;
 
-  // arreglar - tiene que hacer scroll infinito hacia atrás
-  prev(){
-    if(this.currentImg > this.arrImages.length){
+  prev() {
+    if (this.currentImg > 0) {
       this.currentImg--;
-    }else if (this.currentImg === this.arrImages.length +1){
-      this.currentImg = 0;
+    } else {
+      this.currentImg = this.arrImages.length - 1;
     }
   }
+
 
   next(){
     if(this.currentImg < this.arrImages.length -1) {

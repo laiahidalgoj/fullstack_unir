@@ -15,15 +15,16 @@ export class ListaCalculosComponent {
 
 
   ngOnChanges(){
-
+    console.log('ngOnChanges');
+    this.pintar(this.listacalculos);
   }
 
   ngOnInit(){
   }
 
-  ngDoCheck(){
+  pintar(list: ICalc[]){
     this.texto = ''
-    this.listacalculos.forEach(calc => {
+    list.forEach(calc => {
       this.texto += `<p>El resultado de la suma de ${calc.numA} + ${calc.numB} es igual a: ${calc.result}</p>`;
     });
   }
