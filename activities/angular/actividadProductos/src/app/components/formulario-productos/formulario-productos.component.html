@@ -1,0 +1,18 @@
+<div class="form">
+  <h2>Formulario de producto</h2>
+  <hr>
+
+  <div >
+    <label for="title"></label>
+    <input id="title" type="text" placeholder="introduce el título" [(ngModel)]="newProduct.title">
+  </div>
+  <div>
+    <label for="price"></label>
+    <input id="price" type="number" placeholder="introduce el precio" [(ngModel)]="newProduct.price">
+  </div>
+  <div>
+    <label for="quantity"></label>
+    <input id="quantity" type="number" placeholder="introduce la cantidad" [(ngModel)]="newProduct.quantity">
+  </div>
+  <button (click)="getProduct()">Guardar</button>
+</div>

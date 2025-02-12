@@ -1,0 +1,19 @@
+.form {
+  padding: 0 25px;
+}
+
+
+.form div {
+  margin: 10px 0;
+}
+
+
+input {
+  display: block;
+  padding: 10px;
+  width: 100%;
+}
+
+button {
+  padding: 10px;
+}
