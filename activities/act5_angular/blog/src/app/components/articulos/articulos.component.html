@@ -1,1 +1,22 @@
-<p>articulos works!</p>
+<div class="form">
+
+  <div class="content">
+  <div class="content-title">
+    <label for="title"></label>
+    <input id="title" type="text" placeholder="introduce el título" [(ngModel)]="newArticle.title">
+  </div>
+  <div>
+    <label for="text"></label>
+    <input id="text" type="text" placeholder="introduce el texto" [(ngModel)]="newArticle.text">
+  </div>
+  <div>
+    <label for="image"></label>
+    <input id="image" type="image" placeholder="introduce la imagen" [(ngModel)]="newArticle.url">
+  </div>
+  <div>
+    <label for="date"></label>
+    <input id="date" type="date" placeholder="introduce la fecha" [(ngModel)]="newArticle.url">
+  </div>
+  <button (click)="getArticulo()">Guardar</button>
+</div>
+</div>
