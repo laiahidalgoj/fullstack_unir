@@ -1,1 +1,13 @@
-<ul [innerHTML]="texto"></ul>
+<div class="wrapper">
+  <h2>Artículos publicados</h2>
+  <div class="articles-grid">
+    <div *ngFor="let articulo of articulos" class="article-card" [style.backgroundImage]="'url(' + articulo.url + ')'">
+      <h3>{{ articulo.title }}</h3>
+      <p>{{ articulo.text }}</p>
+      <p><strong>Fecha:</strong> {{ articulo.date }}</p>
+      <button (click)="verArticulo(articulo)">Leer más</button>
+    </div>
+  </div>
+</div>
+
+

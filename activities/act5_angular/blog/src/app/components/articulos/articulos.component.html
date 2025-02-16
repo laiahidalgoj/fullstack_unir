@@ -1,22 +1,38 @@
-<div class="form">
+<div class="wrapper">
+  <h2>Añade un artículo al blog</h2>
+  <div class="form-container">
+    <aside class="content">
+      <div class="content-title">
+        <label for="title"></label>
+        <input id="title" type="text" placeholder="introduce el título" [(ngModel)]="newArticle.title">
+      </div>
+      <div class="texto-form">
+        <label for="text"></label>
+        <!-- Usamos textarea para permitir texto wrap -->
+        <textarea id="text" placeholder="introduce el texto" [(ngModel)]="newArticle.text"></textarea>
+      </div>
+      <div class="choose-image-date">
+        <div class="imagen-form">
+          <label for="file"></label>
+          <input id="file" type="file" (change)="onImageChange($event)" accept="image/*">
+          <img *ngIf="newArticle.url" [src]="newArticle.url" alt="Vista previa">
+        </div>
+        <div class="date-form">
+          <label for="date"></label>
+          <input id="date" type="date" placeholder="introduce la fecha" [(ngModel)]="newArticle.date">
+        </div>
+    </div>
+      <button (click)="getArticulo()">Guardar</button>
+    </aside>
 
-  <div class="content">
-  <div class="content-title">
-    <label for="title"></label>
-    <input id="title" type="text" placeholder="introduce el título" [(ngModel)]="newArticle.title">
+    <!-- Vista previa a la derecha -->
+    <div class="preview-content">
+      <div>
+        <h2>{{ newArticle.title || 'Vista previa del título' }}</h2>
+        <p>{{ newArticle.text || 'Vista previa del contenido...' }}</p>
+        <p *ngIf="newArticle.date">Fecha: {{ newArticle.date }}</p>
+        <img *ngIf="newArticle.url" [src]="newArticle.url" class="preview-image" alt="Vista previa de la imagen">
+      </div>
+    </div>
   </div>
-  <div>
-    <label for="text"></label>
-    <input id="text" type="text" placeholder="introduce el texto" [(ngModel)]="newArticle.text">
-  </div>
-  <div>
-    <label for="image"></label>
-    <input id="image" type="image" placeholder="introduce la imagen" [(ngModel)]="newArticle.url">
-  </div>
-  <div>
-    <label for="date"></label>
-    <input id="date" type="date" placeholder="introduce la fecha" [(ngModel)]="newArticle.url">
-  </div>
-  <button (click)="getArticulo()">Guardar</button>
-</div>
 </div>
