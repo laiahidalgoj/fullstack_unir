@@ -2,7 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/activities_UNIR" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/git_terminal/html_repository" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/git_terminal/remote_repository" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/git_terminal/repositorio_local" vcs="Git" />

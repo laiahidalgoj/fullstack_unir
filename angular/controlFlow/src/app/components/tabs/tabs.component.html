@@ -1,0 +1,32 @@
+
+<section class="tabs">  
+    <ul class="menu">
+        <li [class.activo]="seccionActual === 'londres'" (click)="cambiarSeccion('londres')">Londres</li>
+        <li [class.activo]="seccionActual === 'paris'" (click)="cambiarSeccion('paris')">París</li>
+        <li [class.activo]="seccionActual === 'cataluña'" (click)="cambiarSeccion('cataluña')">Cataluña</li>
+    </ul>
+    @if(seccionActual === 'londres'){
+    <article>
+        <h3>Londres</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, omnis! Odit cum velit perspiciatis enim temporibus officia, ad officiis praesentium, debitis inventore corporis. Assumenda sint nam hic exercitationem ipsam aut.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi delectus praesentium dolore molestias laborum error adipisci fuga ipsam fugiat, non sequi eligendi possimus quidem perspiciatis deleniti ducimus soluta, earum officiis!</p>
+    </article>
+    }@else if(seccionActual === 'paris'){
+    <article>
+        <h3>París</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, omnis! Odit cum velit perspiciatis enim temporibus officia, ad officiis praesentium, debitis inventore corporis. Assumenda sint nam hic exercitationem ipsam aut.</p>
+    </article>
+    }@else if(seccionActual === 'cataluña'){
+    <article>
+        <h3>Cataluña</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, omnis! Odit cum velit perspiciatis enim temporibus officia, ad officiis praesentium, debitis inventore corporis. Assumenda sint nam hic exercitationem ipsam aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi delectus praesentium dolore molestias laborum error adipisci fuga ipsam fugiat, non sequi eligendi possimus quidem perspiciatis deleniti ducimus soluta, earum officiis!</p>
+    </article>
+}
+
+</section>
+
+<button (click)="cambiarEstado()">Click</button>
+
+@if(estado){
+    <p [class.rojo]="false">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum alias optio praesentium voluptatem deserunt provident, odio reiciendis sed dignissimos vero adipisci at modi laudantium fugit totam, veritatis a quisquam veniam.</p>
+}

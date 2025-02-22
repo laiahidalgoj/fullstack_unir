@@ -1,0 +1,24 @@
+.series .flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.0625rem;
+    padding: 20px;
+}
+
+.series .flex article {
+    width: 100%;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+@media (width >= 800px){
+    .series .flex article {
+        width: calc(50% - 0.0625rem);
+    }
+}
+
+@media (width >= 1200px){
+    .series .flex article {
+        width: calc(25% - 0.0625rem);
+    }
+}

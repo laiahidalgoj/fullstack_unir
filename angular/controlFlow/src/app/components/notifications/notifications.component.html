@@ -1,0 +1,32 @@
+
+<section class="seccion">
+  <select (change)="cambiarRole($event)" >
+    <option value="">selecciona un rol:</option>
+    @for(role of roles; track role; let i = $index){
+      <option [value]="role">{{role.toUpperCase()}}</option>
+    }
+</select>
+@switch (role){
+  @case('admin'){
+    <section class="seccion roles">
+      <p>Bienvenido administrador</p>
+      <button>insertar</button><button>actualizar</button><button>Borrar</button>
+    </section>
+  }
+
+@case('editor'){
+  <section class="seccion roles">
+    <p>Bienvenido editor</p>
+    <button>insertar</button>
+  </section>
+}
+
+@case('suscriptor'){
+  <section class="seccion roles">
+    <p>Bienvenido suscriptor</p>
+    <p>solo puede visualizar el contenido</p>
+  </section>
+
+  }
+}
+</section>

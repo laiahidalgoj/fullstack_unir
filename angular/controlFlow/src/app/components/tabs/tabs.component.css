@@ -1,0 +1,39 @@
+.tabs {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.tabs .menu {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tabs .menu li {
+    background-color:  purple;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.5s;
+
+&:hover {
+    background-color: pink;
+    color: black;
+}
+}
+
+.tabs article {
+    padding: 20px;
+    border: 1px solid back;
+
+}
+
+.tabs .menu .activo {
+    background-color: tomato;
+}
+
+.rojo {
+    color: darkred;
+}
