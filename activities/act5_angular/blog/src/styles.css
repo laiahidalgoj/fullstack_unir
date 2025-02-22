@@ -1,3 +1,7 @@
+*{
+  font-family: 'Poppins';
+}
+
 .header {
   display: flex;
   padding-top: 20px;

@@ -1,3 +1,47 @@
+@media (max-width: 768px) {
+  .title-articulo {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .articles-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); 
+    padding: 10px;
+  }
+
+  .article-card {
+    height: 200px; 
+  }
+
+  .overlay {
+    padding: 10px;
+  }
+
+  h3 {
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  button {
+    font-size: 12px; 
+    padding: 8px;
+    width: 100%;
+  }
+}
+
+
+
+.title-articulo {
+  margin-top: 50px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:rgb(140, 129, 99);
+}
+
 .articles-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -9,8 +53,8 @@
   background-size: cover;
   background-position: center;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 300px; /* Ajusta la altura de la tarjeta */
+  box-shadow: 0 4px 8px rgb(140, 129, 99);
+  height: 300px; 
   position: relative;
   display: flex;
   align-items: flex-end;
@@ -25,27 +69,30 @@
 }
 
 h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 50px;
+  padding: 15px;
+  color: white;
+  position: absolute;
+  background-color: rgba(40, 40, 40, 0.6);
 }
 
 p {
-  font-size: 14px;
-  margin-bottom: 10px;
+  display: none;
 }
 
 button {
-  background: rgb(40, 120, 167);
+  background: rgba(140, 129, 99);
   color: white;
   border: none;
   padding: 10px;
   width: 100%;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 13px;
   margin-top: 10px;
 }
 
 button:hover {
-  background: rgb(40, 92, 14;
+  background: rgb(119, 110, 82);
 }

@@ -18,6 +18,7 @@ export class ArticulosComponent {
   @Output() articleEmmited: EventEmitter<Iarticulo> = new EventEmitter();
 
   newArticle: Iarticulo = {
+    id: 0,
     title: '',
     text: '',
     url: '', 
@@ -40,6 +41,15 @@ export class ArticulosComponent {
   getArticulo(){
     console.log(this.newArticle);
     this.articleEmmited.emit(this.newArticle);
-    this.newArticle = {title: '', text: '', url: '', date: ''}
+    this.newArticle = {id: 0, title: '', text: '', url: '', date: ''}
   }
+
+  onSubmit() {
+    if (!this.newArticle.text || !this.newArticle.date || !this.newArticle.url) {
+      alert("Todos los campos son obligatorios.");
+      return;
+    }
+    console.log("Formulario enviado:", this.newArticle);
+  }
+  
 }

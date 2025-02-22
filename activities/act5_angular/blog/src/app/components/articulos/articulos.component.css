@@ -1,10 +1,58 @@
+@media (max-width: 768px) {
+  .form-container {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .content-title,
+  .content,
+  .preview-content {
+    width: 90%; 
+  }
+
+  .choose-image-date {
+    flex-direction: column; 
+    gap: 20px;
+    width: 100%;
+  }
+
+  .imagen-form, 
+  .date-form {
+    width: 100%;
+  }
+
+  .texto-form {
+    width: 100%;
+  }
+
+  textarea {
+    height: 120px;
+  }
+
+  button {
+    width: 100%; 
+  }
+
+  .preview-content {
+    width: 100%;
+  }
+}
+
+.title-articulo {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:rgb(140, 129, 99);
+} 
+
 .form-container {
   display: flex;
   justify-content: space-between;
   gap: 20px; 
 }
 .content-title {
-  width: 95%;
+  width: 60%;
 }
 
 .content {
@@ -23,7 +71,15 @@
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(168, 168, 168, 0.2);
-  width: 48%;
+  width: 50%;
+}
+
+.date-title {
+  font-size: 10px;
+}
+
+.content-preview {
+  font-size: 12px;
 }
 
 label {
@@ -75,7 +131,7 @@ img {
 }
 
 button {
-  background:rgb(40, 120, 167);
+  background:rgb(140, 129, 99);
   color: white;
   border: none;
   padding: 10px;
@@ -87,5 +143,5 @@ button {
 }
 
 button:hover {
-  background:rgb(40, 92, 140);
+  background:rgb(119, 110, 82);
 }

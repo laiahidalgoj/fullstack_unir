@@ -1,38 +1,46 @@
 <div class="wrapper">
-  <h2>Añade un artículo al blog</h2>
+  <h2 class="title-articulo">Añade un artículo al blog</h2>
   <div class="form-container">
     <aside class="content">
       <div class="content-title">
         <label for="title"></label>
         <input id="title" type="text" placeholder="introduce el título" [(ngModel)]="newArticle.title">
       </div>
-      <div class="texto-form">
-        <label for="text"></label>
-        <!-- Usamos textarea para permitir texto wrap -->
-        <textarea id="text" placeholder="introduce el texto" [(ngModel)]="newArticle.text"></textarea>
-      </div>
-      <div class="choose-image-date">
-        <div class="imagen-form">
-          <label for="file"></label>
-          <input id="file" type="file" (change)="onImageChange($event)" accept="image/*">
-          <img *ngIf="newArticle.url" [src]="newArticle.url" alt="Vista previa">
+      <form #articleForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="texto-form">
+          <label for="text"></label>
+          <textarea id="text" placeholder="Introduce el texto" [(ngModel)]="newArticle.text" name="text" required></textarea>
         </div>
-        <div class="date-form">
-          <label for="date"></label>
-          <input id="date" type="date" placeholder="introduce la fecha" [(ngModel)]="newArticle.date">
+      
+        <div class="choose-image-date">
+          <div class="imagen-form">
+            <label for="file"></label>
+            <input id="file" type="file" (change)="onImageChange($event)" accept="image/*" required>
+            <img *ngIf="newArticle.url" [src]="newArticle.url" alt="Vista previa">
+          </div>
+      
+          <div class="date-form">
+            <label for="date"></label>
+            <input id="date" type="date" placeholder="Introduce la fecha" [(ngModel)]="newArticle.date" name="date" required>
+          </div>
         </div>
-    </div>
-      <button (click)="getArticulo()">Guardar</button>
+    
+      </form>
+      
+      
+      <button type="submit" [disabled]="articleForm.invalid" (click)="getArticulo()">Guardar</button>
     </aside>
 
-    <!-- Vista previa a la derecha -->
     <div class="preview-content">
       <div>
-        <h2>{{ newArticle.title || 'Vista previa del título' }}</h2>
-        <p>{{ newArticle.text || 'Vista previa del contenido...' }}</p>
-        <p *ngIf="newArticle.date">Fecha: {{ newArticle.date }}</p>
+        <h2>{{ newArticle.title || '' }}</h2>
+        <p class="date-title" *ngIf="newArticle.date">{{ newArticle.date }}</p>
         <img *ngIf="newArticle.url" [src]="newArticle.url" class="preview-image" alt="Vista previa de la imagen">
+        <p class="content-preview">{{ newArticle.text || 'Vista previa del contenido...' }}</p>
+       
+        
       </div>
     </div>
+    
   </div>
 </div>
