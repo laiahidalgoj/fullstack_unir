@@ -1,0 +1,14 @@
+<section class="container">
+    <div class="row g-3">
+        @for(contacto of arrayContactos; track contacto.email){
+        <article class="col-12 col-md-6 col-xl-4">
+            <div class="card p-3">
+                <h3>{{contacto.nombre}}</h3>
+                <p>Teléfono: {{contacto.telefono}}</p>
+                <p>Email: {{contacto.email}}</p>
+                <p>Categoría: {{contacto.tipo}}</p>
+            </div>
+        </article>
+    }
+    </div>
+</section>

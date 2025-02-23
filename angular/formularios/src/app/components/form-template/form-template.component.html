@@ -1,0 +1,29 @@
+<section class="container mt-3">
+
+    <h1>Formulario de tipo template</h1>
+    <hr>
+    <form #contactForm="ngForm" (ngSubmit)="getDataForm(contactForm)">
+        <div class="mb-3">
+            <label class="form-label" for="nombre">Nombre</label>
+            <input class="form-control" type="text" id="nombre" name="nombre" ngModel>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-control" type="email" id="email" name="email" ngModel>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="telefono">Teléfono</label>
+            <input class="form-control" type="tel" id="telefono" name="telefono" ngModel>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="tipo" >Tipo de contacto</label>
+            <select id="tipo" name="tipo" class="form-select" ngModel>
+            <option value="">Selecciona tipo de contacto</option>
+            <option value="laboral">Laboral</option>
+            <option value="personal">Personal</option>
+        </select>
+    </div>
+    <input type="submit" value="enviar" class="btn btn-success">
+    </form>
+
+</section>
