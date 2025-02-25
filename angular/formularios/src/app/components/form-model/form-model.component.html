@@ -6,26 +6,64 @@
        <div class="mb-3">
             <label class="form-label" for="nombre">Nombre</label>
             <input type="text" id="nombre" class="form-control" formControlName="nombre">
+
+            @if(checkControl('nombre', 'required')){
+            <p class="error">El campo es obligatorio</p>
+            }
+            @if(checkControl('nombre', 'minlength')){
+            <p class="error">El campo tiene que tener al menos 3 caracteres</p>
+            }
        </div>
 
        <div class="mb-3">
         <label class="form-label" for="email">Email</label>
         <input type="text" id="email" class="form-control" formControlName="email">
+
+        @if(checkControl('email', 'required')){
+            <p class="error">El campo es obligatorio</p>
+            }
+            @if(checkControl('email', 'pattern')){
+            <p class="error">El email tiene que ser correcto</p>
+            }
    </div>
 
    <div class="mb-3">
         <label class="form-label" for="edad">Edad</label>
         <input type="number" id="email" class="form-control" formControlName="edad">
+
+        @if(checkControl('edad', 'required')){
+            <p class="error">El campo es obligatorio</p>
+            }
+        @if(checkControl('edad', 'min')){
+            <p class="error">La edad mínima es de 18 años</p>
+            }
+            @if(checkControl('edad', 'max')){
+            <p class="error">La edad máxima es de 65 años</p>
+            }
     </div>
 
     <div class="mb-3">
         <label class="form-label" for="dni">DNI</label>
         <input type="text" id="dni" class="form-control" formControlName="dni" >
+
+        @if(checkControl('dni', 'dnivalidator')){
+            <p class="error">{{userForm.get('dni')?.errors?.['dnivalidator']}}</p>
+        }
     </div>
 
     <div class="mb-3">
         <label class="form-label" for="password">Password</label>
         <input type="password" id="password" class="form-control" formControlName="password" >
+
+        @if(checkControl('password', 'required')){
+            <p class="error">El campo es obligatorio</p>
+            }
+        @if(checkControl('password', 'minlength')){
+            <p class="error">Longitud minima 8 caracteres</p>
+            }
+            @if(checkControl('password', 'maxlength')){
+            <p class="error">El password tiene que tener máximo 16 caracteres</p>
+            }
     </div>
 
     <div class="mb-3">
