@@ -1,0 +1,24 @@
+<section class="container" mt-3>
+    <form #serviciosForm="ngForm" (ngSubmit)="getDataForm(serviciosForm.value)">
+        <div class="my-2">
+            <label for="titulo" class="form-label">Titulo del servicio</label>
+            <input type="text" class="form-control" placeholder="introduce un titulo" id="titulo" name="titulo" ngModel>
+        </div>
+
+        <div class="my-2">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <input type="text" class="form-control" placeholder="introduce una descripción" id="descripcion" name="descripcion" ngModel>
+        </div>
+
+        <div class="my-2">
+            <label for="url" class="form-label">Slug</label>
+            <input type="text"  class="form-control" placeholder="introduce una url" id="url" name="url" ngModel>
+        </div>
+
+
+        <div class="my-2">
+            <input type="submit" value="Enviar" class="btn btn-danger">
+        </div>
+
+    </form>
+</section>

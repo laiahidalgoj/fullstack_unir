@@ -1,5 +1,5 @@
 export interface IServicio {
-    id: number;
+    id?: number;
     titulo: string;
     descripcion: string;
     url: string;
