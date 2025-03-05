@@ -11,33 +11,47 @@ import { PersonajeCardComponent } from '../../components/personaje-card/personaj
   styleUrl: './personajes.component.css'
 })
 export class PersonajesComponent {
-
-  arrPersonajesObservale: IPersonaje[] = [];
+  arrPersonajesObservable: IPersonaje[] = [];
   arrPersonajesPromises: IPersonaje[] = [];
-
   personajesServices = inject(PersonajesService);
+  linkPrev: string = "";
+  linkNext: string = "";
 
-   async ngOnInit(){
-      // Consumición de observables - nativo angular
-      this.personajesServices.getAllObservable().subscribe({
-        next: (data)=>{
-          this.arrPersonajesObservale = data.items;
-          console.log(this.arrPersonajesObservale);
-        },
-        error: (error) => {
-          console.log(error);
-        }
-      })
-    
-      
-      // Consumición de promesas - generico javascript
-      try{
-        let response: IResponse = await this.personajesServices.getAllPromise();
-        console.log('Promise: ', response.items)
-      }catch (error){
+  async ngOnInit() {
+    /* Consumición Observables - nativo angular */
+    /*
+    this.personajesServices.getAllObservable().subscribe({
+      next: (data) => {
+        this.arrPersonajesObservable = data.items
+        console.log(this.arrPersonajesObservable)
+      },
+      error: (error) => {
         console.log(error)
       }
-     
-   }
+    })
+      */
 
+    this.cargarPersonajes();
+
+  }
+
+  async gotoNext() {
+    this.cargarPersonajes(this.linkNext)
+  }
+
+  gotoPrev() {
+    this.cargarPersonajes(this.linkPrev)
+  }
+
+  async cargarPersonajes(url: string = "") {
+    /* Consumición Promises - generico javascript */
+    try {
+      let response: IResponse = await this.personajesServices.getAllPromise(url)
+      this.linkNext = response.links.next;
+      this.linkPrev = response.links.previous;
+      this.arrPersonajesPromises = response.items
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }

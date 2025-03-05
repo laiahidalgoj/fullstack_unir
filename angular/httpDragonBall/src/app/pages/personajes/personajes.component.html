@@ -1,5 +1,13 @@
-<section>
-    <article>
-        <app-personaje-card></app-personaje-card>
+<section class="personajes">
+  <div class="d-flex justify-content-between py-5">
+    <button class="btn btn-warning" (click)="gotoPrev()">PREV</button> <button class="btn btn-warning"
+      (click)="gotoNext()">NEXT</button>
+  </div>
+  <div class="row g-4 justify-content-center">
+    @for(personaje of arrPersonajesPromises; track personaje.id){
+    <article class="col-12 col-md-6 col-lg-3">
+      <app-personaje-card [miPersonaje]="personaje"></app-personaje-card>
     </article>
+    }
+  </div>
 </section>
